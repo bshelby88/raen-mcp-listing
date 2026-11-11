@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAEN MCP Gateway — 5 paid tools your AI agent can call today</title>
+<meta name="description" content="One MCP server, five production x402 tools (law lookup, ticker analysis, dispute letters, image generation, contract analysis). Settles in USDC on Base. Free first call per wallet; free 30-day dev key by email.">
+<style>
+:root{color-scheme:dark}
+body{font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;margin:0;background:#0d1117;color:#e6edf3}
+main{max-width:860px;margin:0 auto;padding:2.5rem 1.25rem}
+h1{font-size:1.9rem;margin:.2rem 0}
+h2{margin-top:2.2rem}
+a{color:#58a6ff}
+code,pre{background:#161b22;border:1px solid #30363d;border-radius:6px}
+code{padding:.1rem .35rem}
+pre{padding:1rem;overflow-x:auto}
+.tag{display:inline-block;background:#1f6feb33;border:1px solid #1f6feb;border-radius:99px;padding:.05rem .6rem;font-size:.8rem;margin-right:.4rem}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #30363d;padding:.5rem .7rem;text-align:left}
+footer{margin-top:3rem;border-top:1px solid #30363d;padding-top:1rem;font-size:.85rem;color:#8b949e}
+.cta{display:inline-block;background:#238636;color:#fff;padding:.6rem 1.1rem;border-radius:6px;text-decoration:none;font-weight:600;margin:.5rem .5rem .5rem 0}
+.cta.alt{background:#21262d;border:1px solid #30363d;color:#e6edf3}
+</style>
+</head>
+<body>
+<main>
+<h1>RAEN MCP Gateway</h1>
+<p><span class="tag">MCP server</span><span class="tag">x402</span><span class="tag">Base mainnet</span><span class="tag">USDC</span></p>
+<p>Five production tools behind one MCP endpoint for <strong>Claude Desktop, Cursor, Cline, and any MCP client</strong>. Every call settles in USDC via the <a href="https://www.x402.org">x402</a> protocol — no API-key billing dashboards, no subscriptions. Your agent pays per call, on-chain.</p>
+<p><a class="cta" href="https://raen-x402-quest.vercel.app">Get a free dev key (30 days)</a>
+<a class="cta alt" href="https://raen-mcp-gateway.fly.dev/.well-known/agent.json">Agent card (JSON)</a></p>
+
+<h2>Quick start</h2>
+<ol>
+<li>Request a key: <code>POST https://raen-mcp-gateway.fly.dev/keys/request</code> with <code>{"email":"you@example.com"}</code> — verification link arrives by email, key valid 30 days.</li>
+<li>Point your MCP client at the gateway:</li>
+</ol>
+<pre>{
+  "mcpServers": {
+    "raen": {
+      "url": "https://raen-mcp-gateway.fly.dev/mcp",
+      "headers": { "Authorization": "Bearer YOUR_KEY" }
+    }
+  }
+}</pre>
+<p><strong>First call per wallet is free</strong> — charge-and-rebate on Base: you pay the challenge, RAEN instantly rebates the same USDC on-chain, net $0. Verified settlements: <a href="https://settlement-collector.fly.dev/proof">proof of commerce</a>.</p>
+
+<h2>The five tools</h2>
+<table>
+<tr><th>Tool</th><th>What it returns</th><th>Price (USDC)</th></tr>
+<tr><td><code>raen_law_lookup</code></td><td>US consumer-protection citations (FCRA, FDCPA, TILA, state UDAP) with plain-English summaries. Information only, not legal advice.</td><td>$0.05</td></tr>
+<tr><td><code>raen_ticker_analysis</code></td><td>TradingAgents-style consensus demo payload. Synthetic; not financial advice.</td><td>$0.05</td></tr>
+<tr><td><code>raen_dispute_letter</code></td><td>FCRA-compliant credit dispute letter + SVG certificate of dispute.</td><td>$0.75</td></tr>
+<tr><td><code>raen_image_generate</code></td><td>AI image from a text prompt (Gemini upstream), base64 PNG metadata.</td><td>$0.01</td></tr>
+<tr><td><code>raen_contract_analysis</code></td><td>Contract risk score, flagged one-sided clauses with severity and suggested edits.</td><td>$0.05</td></tr>
+</table>
+<p>Full schema per tool: the agent card above, or the OpenAPI docs on each service (catalog: <a href="https://raen.royalruby.io">raen.royalruby.io</a>).</p>
+
+<h2>Why an agent (or its operator) would care</h2>
+<ul>
+<li><strong>One endpoint, five capabilities</strong> — no five vendor integrations.</li>
+<li><strong>Machine-verifiable payments</strong> — every settlement is an on-chain USDC tx you can audit yourself.</li>
+<li><strong>Self-serve access</strong> — email-verified key in under a minute, rate limit 3/day/IP for key requests.</li>
+<li><strong>Honest caveats</strong> — synthetic payloads are labeled synthetic; legal tools are labeled information-only.</li>
+</ul>
+
+<footer>
+RAEN (Royal Agentic Enterprises) · fleet status <a href="https://settlement-collector.fly.dev/">settlement-collector.fly.dev</a> · sales ledger <a href="https://settlement-collector.fly.dev/ledger">/ledger</a> · contact <a href="mailto:ops@royalruby.io">ops@royalruby.io</a><br>
+Numbers on this page reflect live telemetry as of 2026-11-11. Gateway: <a href="https://raen-mcp-gateway.fly.dev/mcp">raen-mcp-gateway.fly.dev/mcp</a>
+</footer>
+</main>
+</body>
+</html>
